@@ -2,10 +2,12 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ChevronRight, ChevronLeft, ImageOff } from 'lucide-react';
 import { sound } from '../utils/audio';
 
+const BASE = import.meta.env.BASE_URL || '/';
+
 /* ─── Slide data ─────────────────────────────────────────────────────────── */
 const SLIDES = [
   {
-    photo: '/photos/slide1.png',
+    photo: `${BASE}photos/slide1.png`,
     texts: [
       'En ulagame oda kolandhai pic aiyo semma cute ah konjite irundhurupa pola 🥹❤️',
       'Peran appovum ipovum eppovum un sirippu mattum maarala andha azhagana sirippu 😭❤️',
@@ -19,7 +21,7 @@ const SLIDES = [
     glow: 'rgba(244,63,94,0.18)',
   },
   {
-    photo: '/photos/slide2.png',
+    photo: `${BASE}photos/slide2.png`,
     texts: [
       'Adaa, China visual-ah kooda un kangal appadiya irukkayyy 😭😂❤️ Appo kooda un iconic sirippa vittu tharaala nee 😂🫠❤️',
       'Indha visual-la naan un kooda porandha thambiyaa irukkanum nu aasai padren 🥹🫂 Un kooda vilayadittu, sendhu pesittu, sirichittu irukkanum nu aasai padren 🥹❤️🫂',
@@ -31,7 +33,7 @@ const SLIDES = [
     glow: 'rgba(139,92,246,0.18)',
   },
   {
-    photo: '/photos/slide3.png',
+    photo: `${BASE}photos/slide3.png`,
     texts: [
       'Aaiyooo sema cute-aa irukka ma nee 🫠🥹🥹🥹 Unna paathuttay irukkanum nu thonudhu ma 🫠🫠❤️',
       'Eppavum pola chinna vishayathulayum irukkura sirippu… enakku ippo un mogathula venum 🫠🫠🥹❤️',
@@ -45,7 +47,7 @@ const SLIDES = [
     glow: 'rgba(245,158,11,0.18)',
   },
   {
-    photo: '/photos/slide4.png',
+    photo: `${BASE}photos/slide4.png`,
     texts: [
       'Un mooli… adhu enna appadiya oorgu veikkudhu Deepi maa 🫠🫠🫠🥺🥺🥺🫂🫂🫂',
       'Enna di, appovey marriage-aa maalai la potturukka? 😂😂😂🌸',
@@ -60,7 +62,7 @@ const SLIDES = [
     glow: 'rgba(20,184,166,0.18)',
   },
   {
-    photo: '/photos/slide5.png',
+    photo: `${BASE}photos/slide5.png`,
     texts: [
       'ladies ranuvapadai apovey 😂😂😂😂😂🫂🫂😘😘',
       'Happy Birthday once again en uyir, en ulagam, en Deepi maaaaa 💗🎉👑',
@@ -73,9 +75,9 @@ const SLIDES = [
   {
     isTrio: true,
     photos: [
-      '/photos/slide6_1.png',
-      '/photos/slide6_2.jpg',
-      '/photos/slide6_3.png',
+      `${BASE}photos/slide6_1.png`,
+      `${BASE}photos/slide6_2.jpg`,
+      `${BASE}photos/slide6_3.png`,
     ],
     texts: [],
     bg: 'from-violet-950 via-purple-950 to-rose-950',
@@ -86,9 +88,9 @@ const SLIDES = [
   {
     isTrio: true,
     photos: [
-      '/photos/slide7_1.jpg',
-      '/photos/slide7_2.jpg',
-      '/photos/slide7_3.png',
+      `${BASE}photos/slide7_1.jpg`,
+      `${BASE}photos/slide7_2.jpg`,
+      `${BASE}photos/slide7_3.png`,
     ],
     texts: [],
     bg: 'from-rose-950 via-fuchsia-950 to-indigo-950',
@@ -177,7 +179,7 @@ export default function SlideshowStage({ onCompleteSlideshow, isMuted, toggleAud
     const t = setTimeout(() => setVisible(true), 80);
 
     // Initialize and play background music for slideshow
-    const audio = new Audio('/audio/slideshow_bgm.mpeg');
+    const audio = new Audio(`${BASE}audio/slideshow_bgm.mpeg`);
     audio.loop = true;
     audio.muted = isMuted;
     audioRef.current = audio;
